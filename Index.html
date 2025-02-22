@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <title>HTML</title>
+
+ <!-- HTML -->
+
+
+ <!-- Custom Styles -->
+ <link rel="stylesheet" href="style.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Gorditas:wght@400;700&display=swap" rel="stylesheet">
+
+ <style>
+  * {
+   margin: 0px;
+   padding: 0px;
+   font-family: "Gorditas", serif;
+  }
+
+  body {
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+   background-color: #FFB0D354;
+  }
+
+  .container {
+   background-image: linear-gradient(120deg, #0082FC, #00FCDC);
+   padding: 10px 20px 10px 20px;
+   align-items: center;
+   text-align: center;
+   box-sizing: border-box;
+   border-radius: 10px 20px 10px 20px;
+   box-shadow: 0px 0px 15px #7F7F7F;
+  }
+
+  button {
+   color: white;
+   margin: 10px;
+   padding: 8px 20px 8px 20px;
+   border: none;
+   background-image: radial-gradient(#FC5200BD, #FC00669E);
+   border-radius: 18px 7.5px 18px 7.5px;
+  }
+
+  h3 {
+   font-size: 26px;
+   padding-top: 6px;
+   padding-bottom: 5px;
+  }
+
+  h1 {
+   font-size: 41.5px;
+   margin-bottom: 0px;
+  }
+ </style>
+ 
+</head>
+<script>
+ var x = window.onload = confirm("If any kind of problem is created in your web application. Please send the problem by screenshot or typing it on this Email :- (nd1961175@gmail.com)   Thanks for visiting !")
+ if(x == true)
+ {
+  alert("Thanks ❣️")
+ }
+ 
+ if(x == false)
+ {
+  alert("Oops 🥺                                                                        why are you clicked on cancel button please again reload this site and click on 'OK' button")
+ }
+</script>
+<body>
+ <!-- Project -->
+ <div class="container">
+  <h3>Stopwatch</h3>
+  <h1 id="display">00 : 00 : 00</h1>
+  <button onclick="Start()">Start</button>
+  <button onclick="Stop()">Stop</button>
+  <button type="reset" onclick="reset()">Reset</button>
+ </div>
+ <script>
+  var isStop = true;
+  var sec = 0;
+  var min = 0;
+  var hr = 0;
+
+  const Start = () => {
+   if (isStop == true)
+   {
+    isStop = false;
+    startTimer();
+   }
+  }
+
+  const startTimer = () => {
+   if (isStop == false)
+   {
+    sec = parseInt(sec);
+    min = parseInt(min);
+    hr = parseInt(hr);
+    sec++;
+    if (sec == 60)
+    {
+     sec = 0;
+     min++;
+    }
+
+    if (min == 60)
+    {
+     min = 0;
+     hr++;
+    }
+
+    if (sec < 10)
+    {
+     sec = "0" + sec;
+    }
+
+    if (min < 10)
+    {
+     min = "0" + min;
+    }
+
+    if (hr < 10)
+    {
+     hr = "0" + hr;
+    }
+
+    display.innerHTML = hr + " : " + min + " : " + sec;
+    setTimeout("startTimer()", 1000)
+   }
+  }
+
+  const Stop = () => {
+   isStop = true;
+  }
+
+  const reset = () => {
+   isStop = true;
+   sec = 0;
+   hr = 0;
+   min = 0;
+   display.innerHTML = "00 : 00 : 00";
+  }
+ </script>
+</body>
+
+</html>
